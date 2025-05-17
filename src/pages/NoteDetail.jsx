@@ -8,7 +8,7 @@ const NoteDetail = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [dueDate, setDueDate] = useState('');
-  
+
   const navigate = useNavigate();
 
   const fetchNote = async () => {
@@ -36,7 +36,7 @@ const NoteDetail = () => {
 
   useEffect(() => {
     if (id) fetchNote();
-  }, [id]);
+  }, [id,fetchNote]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

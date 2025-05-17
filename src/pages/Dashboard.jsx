@@ -42,7 +42,8 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchNotes();
-  }, [fetchNotes]);
+  }, [fetchNotes]); // eslint-disable-next-line react-hooks/exhaustive-deps
+
 
   const openAddModal = () => {
     setIsEditing(false);
