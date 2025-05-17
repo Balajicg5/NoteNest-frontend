@@ -31,7 +31,7 @@ const Dashboard = () => {
     const token = localStorage.getItem('token');
     if (!token) return navigate('/login');
     try {
-      const res = await axios.get('http://localhost:5000/api/notes', {
+      const res = await axios.get('https://notenest-backend-production-231f.up.railway.app/api/notes', {
         headers: { 'x-auth-token': token },
       });
       setNotes(res.data);
@@ -68,13 +68,13 @@ const Dashboard = () => {
     try {
       if (isEditing) {
         await axios.put(
-          `http://localhost:5000/api/notes/${selectedNoteId}`,
+          `https://notenest-backend-production-231f.up.railway.app/api/notes/${selectedNoteId}`,
           { title, content, dueDate },
           { headers: { 'x-auth-token': token } }
         );
       } else {
         await axios.post(
-          'http://localhost:5000/api/notes',
+          'https://notenest-backend-production-231f.up.railway.app/api/notes',
           { title, content, dueDate },
           { headers: { 'x-auth-token': token } }
         );
@@ -90,7 +90,7 @@ const Dashboard = () => {
     const token = localStorage.getItem('token');
     try {
       await axios.put(
-        `http://localhost:5000/api/notes/${id}/complete`,
+        `https://notenest-backend-production-231f.up.railway.app/api/notes/${id}/complete`,
         {},
         { headers: { 'x-auth-token': token } }
       );
@@ -103,7 +103,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:5000/api/notes/${id}`, {
+      await axios.delete(`https://notenest-backend-production-231f.up.railway.app/api/notes/${id}`, {
         headers: { 'x-auth-token': token },
       });
       fetchNotes();

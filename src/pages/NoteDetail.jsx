@@ -16,7 +16,7 @@ const NoteDetail = () => {
     if (!token) return navigate('/login');
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/notes/${id}`, {
+      const res = await axios.get(`https://notenest-backend-production-231f.up.railway.app/api/notes/${id}`, {
         headers: { 'x-auth-token': token },
       });
 
@@ -43,7 +43,7 @@ const NoteDetail = () => {
     const token = localStorage.getItem('token');
     try {
       await axios.put(
-        `http://localhost:5000/api/notes/${id}`,
+        `https://notenest-backend-production-231f.up.railway.app/api/notes/${id}`,
         { title, content, dueDate },
         { headers: { 'x-auth-token': token } }
       );
