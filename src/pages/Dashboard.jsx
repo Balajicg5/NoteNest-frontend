@@ -1,4 +1,4 @@
-import { useEffect, useState, Fragment } from 'react';
+import { useEffect, useState, Fragment, useCallback } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -27,7 +27,7 @@ const Dashboard = () => {
   const [filterStatus, setFilterStatus] = useState('all');
   const navigate = useNavigate();
 
-  const fetchNotes = async () => {
+  const fetchNotes =useCallback( async () => {
     const token = localStorage.getItem('token');
     if (!token) return navigate('/login');
     try {
@@ -38,7 +38,7 @@ const Dashboard = () => {
     } catch (err) {
       console.error(err);
     }
-  };
+  },[navigate]);
 
   useEffect(() => {
     fetchNotes();

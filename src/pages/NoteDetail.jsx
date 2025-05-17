@@ -11,32 +11,32 @@ const NoteDetail = () => {
 
   const navigate = useNavigate();
 
-  const fetchNote = async () => {
-    const token = localStorage.getItem('token');
-    if (!token) return navigate('/login');
+  const fetchNote = useCallback(async () => {
+  const token = localStorage.getItem('token');
+  if (!token) return navigate('/login');
 
-    try {
-      const res = await axios.get(`https://notenest-backend-production-231f.up.railway.app/api/notes/${id}`, {
-        headers: { 'x-auth-token': token },
-      });
+  try {
+    const res = await axios.get(`https://notenest-backend-production-231f.up.railway.app/api/notes/${id}`, {
+      headers: { 'x-auth-token': token },
+    });
 
-      if (res.data) {
-        console.log('Fetched note:', res.data);  // Debugging line
-        setNote(res.data);
-        setTitle(res.data.title);
-        setContent(res.data.content);
-        setDueDate(res.data.dueDate ? new Date(res.data.dueDate).toISOString().split('T')[0] : '');
-      } else {
-        console.error('No data received');
-      }
-    } catch (err) {
-      console.error('Error fetching note:', err);
+    if (res.data) {
+      console.log('Fetched note:', res.data);
+      setNote(res.data);
+      setTitle(res.data.title);
+      setContent(res.data.content);
+      setDueDate(res.data.dueDate ? new Date(res.data.dueDate).toISOString().split('T')[0] : '');
+    } else {
+      console.error('No data received');
     }
-  };
+  } catch (err) {
+    console.error('Error fetching note:', err);
+  }
+}, [id, navigate]);
 
-  useEffect(() => {
-    if (id) fetchNote();
-  }, [id,fetchNote]);
+useEffect(() => {
+  if (id) fetchNote();
+}, [id, fetchNote]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
