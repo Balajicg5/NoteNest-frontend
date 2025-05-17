@@ -8,7 +8,7 @@ const NoteDetail = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [dueDate, setDueDate] = useState('');
-  const [isEditing, setIsEditing] = useState(false);
+  
   const navigate = useNavigate();
 
   const fetchNote = async () => {

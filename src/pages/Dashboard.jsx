@@ -42,7 +42,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetchNotes();
-  }, []);
+  }, [fetchNotes]);
 
   const openAddModal = () => {
     setIsEditing(false);
