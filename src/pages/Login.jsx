@@ -17,7 +17,7 @@ const Login = () => {
 
     try {
       // Send login request to backend
-      const res = await axios.post('https://notenest-backend-production-231f.up.railway.app/api/auth/login', { email, password });
+      const res = await axios.post('https://notenest-backend-24es.onrender.com/api/auth/login', { email, password });
 
       // Save the JWT token in localStorage
       localStorage.setItem('token', res.data.token);

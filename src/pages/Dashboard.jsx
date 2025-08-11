@@ -91,7 +91,7 @@ const Dashboard = () => {
     const token = localStorage.getItem('token');
     try {
       await axios.put(
-        `https://notenest-backend-production-231f.up.railway.app/api/notes/${id}/complete`,
+        `https://notenest-backend-24es.onrender.com/api/notes/${id}/complete`,
         {},
         { headers: { 'x-auth-token': token } }
       );
@@ -104,7 +104,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`https://notenest-backend-production-231f.up.railway.app/api/notes/${id}`, {
+      await axios.delete(`https://notenest-backend-24es.onrender.com/api/notes/${id}`, {
         headers: { 'x-auth-token': token },
       });
       fetchNotes();

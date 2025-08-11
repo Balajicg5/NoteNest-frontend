@@ -16,7 +16,7 @@ const NoteDetail = () => {
   if (!token) return navigate('/login');
 
   try {
-    const res = await axios.get(`https://notenest-backend-production-231f.up.railway.app/api/notes/${id}`, {
+    const res = await axios.get(`https://notenest-backend-24es.onrender.com/api/notes/${id}`, {
       headers: { 'x-auth-token': token },
     });
 
@@ -43,7 +43,7 @@ useEffect(() => {
     const token = localStorage.getItem('token');
     try {
       await axios.put(
-        `https://notenest-backend-production-231f.up.railway.app/api/notes/${id}`,
+        `https://notenest-backend-24es.onrender.com/api/notes/${id}`,
         { title, content, dueDate },
         { headers: { 'x-auth-token': token } }
       );

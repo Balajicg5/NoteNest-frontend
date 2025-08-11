@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      await axios.post('https://notenest-backend-production-231f.up.railway.app/api/auth/signup', { email, password });
+      await axios.post('https://notenest-backend-24es.onrender.com/api/auth/signup', { email, password });
 
       toast.success('Signup successful! Redirecting to login...', {
         position: 'top-center',
