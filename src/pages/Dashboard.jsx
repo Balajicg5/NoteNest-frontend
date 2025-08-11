@@ -31,7 +31,7 @@ const Dashboard = () => {
     const token = localStorage.getItem('token');
     if (!token) return navigate('/login');
     try {
-      const res = await axios.get('https://notenest-backend-production-231f.up.railway.app/api/notes', {
+      const res = await axios.get('https://notenest-backend-24es.onrender.com/api/notes', {
         headers: { 'x-auth-token': token },
       });
       setNotes(res.data);
