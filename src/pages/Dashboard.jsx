@@ -69,13 +69,13 @@ const Dashboard = () => {
     try {
       if (isEditing) {
         await axios.put(
-          `https://notenest-backend-production-231f.up.railway.app/api/notes/${selectedNoteId}`,
+          `https://notenest-backend-24es.onrender.com/api/notes/${selectedNoteId}`,
           { title, content, dueDate },
           { headers: { 'x-auth-token': token } }
         );
       } else {
         await axios.post(
-          'https://notenest-backend-production-231f.up.railway.app/api/notes',
+          'https://notenest-backend-24es.onrender.com/api/notes',
           { title, content, dueDate },
           { headers: { 'x-auth-token': token } }
         );
